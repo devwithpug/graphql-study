@@ -1,0 +1,31 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  datasource:
+    username: admin
+    password: pw
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:gql
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+  graphql:
+    path: /graphql
+    graphiql:
+      enabled: true
+      path: /graphiql
+    schema:
+      locations: classpath:graphql/**/
+      printer:
+        enabled: true # /graphql/schema
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:db/data.sql
+      schema-locations: classpath:db/schema.sql
